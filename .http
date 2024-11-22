@@ -1,0 +1,21 @@
+@host = http://localhost:3000
+
+### Register new customer
+POST {{host}}/register
+Content-Type: application/json
+
+{
+  "username": "Luffy",
+  "password": "zoro-is-the-coolest-strawhat"
+}
+
+### Login
+# @name login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+  "username": "Luffy",
+  "password": "zoro-is-the-coolest-strawhat"
+}
+
