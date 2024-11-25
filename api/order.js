@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-module.exports = router;
 
 const { authenticate } = require("./auth");
 const prisma = require("../prisma");
@@ -39,14 +38,14 @@ router.post("/", authenticate, async (req, res, next) => {
 
 router.get('/:id', authenticate, async (req, res) => {
   const { id } = req.params;
-
+  
   try {
     const order = await prisma.order.findUnique({
       where: { id: parseInt(id) },
       include: { items: true },
     });
     if (!order) return res.status(404).json({ error: 'Order not found' });
-   
+    
     if (order.customerId !== req.user.id) {
       return res.status(403).json({ error: 'Forbidden: Not your order' });
     }
@@ -56,3 +55,4 @@ router.get('/:id', authenticate, async (req, res) => {
   }
 });
 
+module.exports = router;
