@@ -22,6 +22,17 @@ Content-Type: application/json
 ###
 @token = {{login.response.body.token}}
 
-###
+### Get all orders
 GET {{host}}/orders
 Authorization: Bearer {{token}}
+
+### Create a new order
+POST {{host}}/orders
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "date": "06-07-2024",
+  "note": "initial order",
+  "productIds": [1, 2, 3]
+}
