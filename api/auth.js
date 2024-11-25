@@ -58,5 +58,6 @@ const authenticate = (req, res, next) => {
 }
 
 module.exports = {
-  router
-}
+  router,
+  authenticate,
+};
