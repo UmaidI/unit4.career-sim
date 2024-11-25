@@ -19,6 +19,14 @@ Content-Type: application/json
   "password": "zoro-is-the-coolest-strawhat"
 }
 
+
+### Get all products
+GET {{host}}/products
+
+### Get specific product
+GET {{host}}/products/1
+Authorization: Bearer {{token}}
+
 ###
 @token = {{login.response.body.token}}
 
